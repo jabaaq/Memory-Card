@@ -1,15 +1,18 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import "./App.css";
 import { LoadingPage } from "./pages/loadingPage/loadingPage";
+import { StartPage } from "./pages/startPage/startPage";
 
 function App() {
-  const [count, setCount] = useState(0);
+  const [isLoading, setLoadingIsOver] = useState(false);
 
-  return (
-    <>
-      <LoadingPage />
-    </>
-  );
+  useEffect(() => {
+    setTimeout(() => {
+      setLoadingIsOver(true);
+    }, 3000);
+  }, []);
+
+  return <>{isLoading ? <StartPage /> : <LoadingPage />}</>;
 }
 
 export default App;

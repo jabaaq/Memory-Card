@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@500&display=swap');
+
 :root {
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
@@ -31,6 +33,7 @@ body {
   min-height: 100vh;
   background-image: url('../src/assets/img/forest-background.jpg');
   background-size: contain;
+  font-family: 'Pixelify Sans', sans-serif;
 }
 
 h1 {
