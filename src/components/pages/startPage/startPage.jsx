@@ -1,4 +1,4 @@
-import gameLogo from '../../../../assets/img/pokemon-logo.png';
+import gameLogo from '../../../assets/img/pokemon-logo.png';
 import './startPage.css';
 import {motion} from 'framer-motion';
 

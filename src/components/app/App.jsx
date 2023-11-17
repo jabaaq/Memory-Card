@@ -1,8 +1,8 @@
 import {useState, useEffect} from 'react';
 import './App.css';
-import {LoadingPage} from './pages/loadingPage/loadingPage';
-import {StartPage} from './pages/startPage/startPage';
-import {GamePage} from './pages/gamePage/gamePage';
+import {LoadingPage} from '../pages/loadingPage/loadingPage';
+import {StartPage} from '../pages/startPage/startPage';
+import {GamePage} from '../pages/gamePage/gamePage';
 
 function App(props) {
   const [isLoading, setLoadingIsOver] = useState(false);

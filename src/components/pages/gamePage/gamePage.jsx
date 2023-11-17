@@ -1,5 +1,5 @@
-import gameLogo from '../../../../assets/img/pokemon-logo.png';
-import trophy from '../../../../assets/img/trophy-logo.png';
+import gameLogo from '../../../assets/img/pokemon-logo.png';
+import trophy from '../../../assets/img/trophy-logo.png';
 import {motion} from 'framer-motion';
 import './gamePage.css';
 
