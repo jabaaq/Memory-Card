@@ -1,0 +1,24 @@
+.scores-container {
+    width: 300px;
+    padding: 1.9rem 1.2rem;
+    text-align: center;
+    justify-content: center;
+    display: flex;
+    flex-direction: row;
+    gap: 30px;
+    text-shadow: 1px 1px 1px black;
+}
+
+.scores-container {
+    position: fixed;
+    font-size: 30px;
+    top: 5%;
+    right: 5%;
+}
+
+.game-logo-left {
+    position: fixed;
+
+    top: 5%;
+    left: 5%;
+}
