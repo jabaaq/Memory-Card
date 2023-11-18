@@ -3,9 +3,8 @@ import './App.css';
 import {LoadingPage} from '../pages/loadingPage/loadingPage';
 import {StartPage} from '../pages/startPage/startPage';
 import {GamePage} from '../pages/gamePage/gamePage';
-import {Service} from '../../services/service';
 
-function App(props) {
+function App() {
   const [isLoading, setLoadingIsOver] = useState(false);
   const [isStartClicked, setGameStart] = useState(false);
 
@@ -40,7 +39,6 @@ function App(props) {
       ) : (
         <LoadingPage />
       )}
-      <Service />
     </>
   );
 }

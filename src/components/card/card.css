@@ -5,3 +5,11 @@
     border-radius: 10px;
     border: 1px solid rgba(255, 255, 255, 0.18);
 }
+
+li {
+    list-style-type: none
+}
+
+.character-name {
+    text-shadow: 1px 1px 1px black;
+}

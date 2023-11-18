@@ -2,9 +2,14 @@ import gameLogo from '../../../assets/img/pokemon-logo.png';
 import trophy from '../../../assets/img/trophy-logo.png';
 import {motion} from 'framer-motion';
 import {Card} from '../../card/card';
+import {characters} from '../../../services/characters';
 import './gamePage.css';
 
 function GamePage() {
+  const eachCard = characters.map((item) => {
+    return <Card key={item.id} name={item.name} img={item.src} />;
+  });
+
   return (
     <>
       <div className="game-header">
@@ -25,22 +30,7 @@ function GamePage() {
           </h4>
         </div>
       </div>
-      <div className="cards-grid">
-        <Card />
-        <Card />
-        <Card />
-        <Card />
-        <Card />
-        <Card />
-        <Card />
-        <Card />
-        <Card />
-        <Card />
-        <Card />
-        <Card />
-        <Card />
-        <Card />
-      </div>
+      <ul className="cards-grid">{eachCard}</ul>
     </>
   );
 }

@@ -1,17 +1,18 @@
 import './card.css';
 import Tilt from 'react-parallax-tilt';
-import pikachu from '../../assets/img/charactersImg/pikachu.png';
 
-function Card() {
+function Card({id, name, img}) {
   return (
-    <Tilt perspective={500} glareEnable={true} scale={1.02} style={{height: 220, width: 170}}>
-      <div className="tilt-card">
-        <div className="character-img">Pikachu</div>
-        <div className="character-name">
-          <img src={pikachu} alt="Pikachu" width={150} />
+    <li key={id}>
+      <Tilt perspective={500} glareEnable={true} scale={1.02} style={{height: 220, width: 170}}>
+        <div className="tilt-card">
+          <div className="character-name">{name}</div>
+          <div className="character-img">
+            <img src={img} alt={img} width={150} />
+          </div>
         </div>
-      </div>
-    </Tilt>
+      </Tilt>
+    </li>
   );
 }
 
