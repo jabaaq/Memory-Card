@@ -12,22 +12,23 @@ import pikachu from '../assets/img/charactersImg/pikachu.png';
 import beedrill from '../assets/img/charactersImg/beedrill.png';
 import pidgeotto from '../assets/img/charactersImg/pidgeotto.png';
 import Sandshrew from '../assets/img/charactersImg/Sandshrew.png';
+import uniqid from 'uniqid';
 
 const characters = [
-  {id: 1, name: 'bulbasaur', src: bulbasaur},
-  {id: 2, name: 'ivysaur', src: ivysaur},
-  {id: 3, name: 'venusaur', src: venusaur},
-  {id: 4, name: 'charmander', src: charmander},
-  {id: 5, name: 'charmeleon', src: charmeleon},
-  {id: 6, name: 'charizard', src: charizard},
-  {id: 7, name: 'squirtle', src: squirtle},
-  {id: 8, name: 'wartortle', src: wartortle},
-  {id: 9, name: 'blastoise', src: blastoise},
-  {id: 10, name: 'caterpie', src: caterpie},
-  {id: 12, name: 'pikachu', src: pikachu},
-  {id: 15, name: 'beedrill', src: beedrill},
-  {id: 17, name: 'pidgeotto', src: pidgeotto},
-  {id: 18, name: 'Sandshrew', src: Sandshrew},
+  {id: uniqid(), name: 'bulbasaur', src: bulbasaur},
+  {id: uniqid(), name: 'ivysaur', src: ivysaur},
+  {id: uniqid(), name: 'venusaur', src: venusaur},
+  {id: uniqid(), name: 'charmander', src: charmander},
+  {id: uniqid(), name: 'charmeleon', src: charmeleon},
+  {id: uniqid(), name: 'charizard', src: charizard},
+  {id: uniqid(), name: 'squirtle', src: squirtle},
+  {id: uniqid(), name: 'wartortle', src: wartortle},
+  {id: uniqid(), name: 'blastoise', src: blastoise},
+  {id: uniqid(), name: 'caterpie', src: caterpie},
+  {id: uniqid(), name: 'pikachu', src: pikachu},
+  {id: uniqid(), name: 'beedrill', src: beedrill},
+  {id: uniqid(), name: 'pidgeotto', src: pidgeotto},
+  {id: uniqid(), name: 'Sandshrew', src: Sandshrew},
 ];
 
 export {characters};

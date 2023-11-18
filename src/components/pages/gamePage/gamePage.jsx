@@ -7,7 +7,7 @@ import './gamePage.css';
 
 function GamePage() {
   const eachCard = characters.map((item) => {
-    return <Card key={item.id} name={item.name} img={item.src} />;
+    return <Card key={item.id} id={item.id} name={item.name} img={item.src} />;
   });
 
   return (
