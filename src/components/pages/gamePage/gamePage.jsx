@@ -4,9 +4,16 @@ import {motion} from 'framer-motion';
 import {Card} from '../../card/card';
 import {characters} from '../../../services/characters';
 import './gamePage.css';
+import {useState} from 'react';
 
 function GamePage() {
-  const eachCard = characters.map((item) => {
+  function shuffleCards(array) {
+    return array.sort(() => Math.random() - 0.5);
+  }
+
+  let shuffledCards = shuffleCards(characters);
+
+  const eachCard = shuffledCards.map((item) => {
     return <Card key={item.id} id={item.id} name={item.name} img={item.src} />;
   });
 
