@@ -6,10 +6,34 @@
     border: 1px solid rgba(255, 255, 255, 0.18);
 }
 
+.flip-vh {
+    height: 100%;
+}
+
+
 li {
     list-style-type: none
 }
 
 .character-name {
     text-shadow: 1px 1px 1px black;
+}
+
+.card {
+    aspect-ratio: 1 / 1.546;
+    width: 150px;
+    transform-style: preserve-3d;
+    transition: transform 1s;
+    cursor: pointer;
+    height: 220px
+}
+
+.card-flipped {
+    aspect-ratio: 1 / 1.546;
+    width: 150px;
+    transform-style: preserve-3d;
+    transition: transform 1s;
+    cursor: pointer;
+    height: 220px;
+    transform: rotateY(180deg);
 }

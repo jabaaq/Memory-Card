@@ -4,11 +4,15 @@ import {motion} from 'framer-motion';
 import {Card} from '../../card/card';
 import {characters} from '../../../services/characters';
 import './gamePage.css';
-import {useState} from 'react';
+import {useEffect, useState} from 'react';
 
 function GamePage() {
   const [cards, setCards] = useState(characters);
   const [clickedCharacter, setClickedCharacter] = useState(false);
+  const [isFlipped, setIsFlipped] = useState(false);
+  const [addedChars, setAddedChars] = useState([]);
+
+  // useEffect(() => {}, [isFlipped]);
 
   function shuffleCards(array) {
     return array.sort(() => Math.random() - 0.5);
@@ -21,19 +25,35 @@ function GamePage() {
     setCards(shuffledCards);
   };
 
+  const selectedChars = (id) => {
+    setAddedChars((prevAddedChars) => {
+      if (prevAddedChars.includes(id)) {
+        console.log('GAME OVER!');
+      } else {
+        return [...prevAddedChars, id];
+      }
+    });
+  };
+
+  useEffect(() => {
+    console.log(addedChars);
+  }, [addedChars]);
+
   const handleCLick = (id) => {
     if (!clickedCharacter) {
       cards.map((item) => {
         if (item.id === id) {
           item.clicked = true;
-          shuffleTheCards();
+          setTimeout(() => {
+            selectedChars(item.id);
+            shuffleTheCards();
+          }, 800);
         }
       });
     }
   };
 
   console.log('shuffled characters -', cards);
-  // console.log('selectedChar - ', selectedChars);
 
   const eachCard = shuffledCards.map((item) => {
     return (
@@ -44,6 +64,7 @@ function GamePage() {
         name={item.name}
         img={item.src}
         clicked={item.clicked}
+        isFlipped={isFlipped}
       />
     );
   });
