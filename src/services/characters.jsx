@@ -15,20 +15,20 @@ import Sandshrew from '../assets/img/charactersImg/Sandshrew.png';
 import uniqid from 'uniqid';
 
 const characters = [
-  {id: uniqid(), name: 'bulbasaur', src: bulbasaur},
-  {id: uniqid(), name: 'ivysaur', src: ivysaur},
-  {id: uniqid(), name: 'venusaur', src: venusaur},
-  {id: uniqid(), name: 'charmander', src: charmander},
-  {id: uniqid(), name: 'charmeleon', src: charmeleon},
-  {id: uniqid(), name: 'charizard', src: charizard},
-  {id: uniqid(), name: 'squirtle', src: squirtle},
-  {id: uniqid(), name: 'wartortle', src: wartortle},
-  {id: uniqid(), name: 'blastoise', src: blastoise},
-  {id: uniqid(), name: 'caterpie', src: caterpie},
-  {id: uniqid(), name: 'pikachu', src: pikachu},
-  {id: uniqid(), name: 'beedrill', src: beedrill},
-  {id: uniqid(), name: 'pidgeotto', src: pidgeotto},
-  {id: uniqid(), name: 'Sandshrew', src: Sandshrew},
+  {id: uniqid(), name: 'bulbasaur', src: bulbasaur, clicked: false},
+  {id: uniqid(), name: 'ivysaur', src: ivysaur, clicked: false},
+  {id: uniqid(), name: 'venusaur', src: venusaur, clicked: false},
+  {id: uniqid(), name: 'charmander', src: charmander, clicked: false},
+  {id: uniqid(), name: 'charmeleon', src: charmeleon, clicked: false},
+  {id: uniqid(), name: 'charizard', src: charizard, clicked: false},
+  {id: uniqid(), name: 'squirtle', src: squirtle, clicked: false},
+  {id: uniqid(), name: 'wartortle', src: wartortle, clicked: false},
+  {id: uniqid(), name: 'blastoise', src: blastoise, clicked: false},
+  {id: uniqid(), name: 'caterpie', src: caterpie, clicked: false},
+  {id: uniqid(), name: 'pikachu', src: pikachu, clicked: false},
+  {id: uniqid(), name: 'beedrill', src: beedrill, clicked: false},
+  {id: uniqid(), name: 'pidgeotto', src: pidgeotto, clicked: false},
+  {id: uniqid(), name: 'Sandshrew', src: Sandshrew, clicked: false},
 ];
 
 export {characters};

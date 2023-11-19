@@ -7,14 +7,45 @@ import './gamePage.css';
 import {useState} from 'react';
 
 function GamePage() {
+  const [cards, setCards] = useState(characters);
+  const [clickedCharacter, setClickedCharacter] = useState(false);
+
   function shuffleCards(array) {
     return array.sort(() => Math.random() - 0.5);
   }
 
-  let shuffledCards = shuffleCards(characters);
+  let shuffledCards = shuffleCards(cards);
+
+  const shuffleTheCards = () => {
+    const shuffledCards = [...cards].sort(() => Math.random() - 0.5);
+    setCards(shuffledCards);
+  };
+
+  const handleCLick = (id) => {
+    if (!clickedCharacter) {
+      cards.map((item) => {
+        if (item.id === id) {
+          item.clicked = true;
+          shuffleTheCards();
+        }
+      });
+    }
+  };
+
+  console.log('shuffled characters -', cards);
+  // console.log('selectedChar - ', selectedChars);
 
   const eachCard = shuffledCards.map((item) => {
-    return <Card key={item.id} id={item.id} name={item.name} img={item.src} />;
+    return (
+      <Card
+        clickedChar={handleCLick}
+        key={item.id}
+        id={item.id}
+        name={item.name}
+        img={item.src}
+        clicked={item.clicked}
+      />
+    );
   });
 
   return (
@@ -38,6 +69,7 @@ function GamePage() {
         </div>
       </div>
       <ul className="cards-grid">{eachCard}</ul>
+      <button onClick={shuffleTheCards}>Shuffle</button>
     </>
   );
 }
