@@ -13,18 +13,11 @@
 }
 
 
-.show {
-    display: block;
-}
-
-.hide {
-    display: none;
-}
 
 
 .modal-box {
     z-index: 1;
-    width: 200px;
+    width: 360px;
     height: 340px;
     background-color: white;
     border-radius: 7px;

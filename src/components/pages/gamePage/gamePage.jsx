@@ -14,6 +14,7 @@ function GamePage() {
   const [addedChars, setAddedChars] = useState([]);
   const [gameEnded, setGameEnded] = useState(false);
   const [restartGame, setRestartGame] = useState(false);
+  const [gameWon, setGameWon] = useState(false);
 
   function shuffleCards(array) {
     return array.sort(() => Math.random() - 0.5);
@@ -30,10 +31,13 @@ function GamePage() {
     setAddedChars((prevAddedChars) => {
       if (prevAddedChars.includes(id)) {
         setGameEnded(true);
+        setGameWon(false);
         console.log('Game over!');
-      } else {
-        return [...prevAddedChars, id];
+      } else if (prevAddedChars.length + 1 === Object.entries(characters).length) {
+        setGameWon(true);
+        setGameEnded(true);
       }
+      return [...prevAddedChars, id];
     });
   };
 
@@ -74,10 +78,12 @@ function GamePage() {
   const handleRestartGame = () => {
     setRestartGame(true);
     setGameEnded(false);
+    setGameWon(false);
     setAddedChars([]);
   };
 
-  const gameOver = gameEnded ? <Modal handleRestartGame={handleRestartGame} /> : null;
+  const gameOver = gameEnded ? <Modal success={false} handleRestartGame={handleRestartGame} /> : null;
+  const succeedGame = gameWon ? <Modal success={true} handleRestartGame={handleRestartGame} /> : null;
 
   return (
     <>
@@ -102,6 +108,7 @@ function GamePage() {
       <ul className="cards-grid">
         {eachCard}
         {gameOver}
+        {succeedGame}
       </ul>
       <button onClick={shuffleTheCards}>Shuffle</button>
     </>
