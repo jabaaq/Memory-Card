@@ -3,6 +3,7 @@ import trophy from '../../../assets/img/trophy-logo.png';
 import {motion} from 'framer-motion';
 import {Card} from '../../card/card';
 import {characters} from '../../../services/characters';
+import {Modal} from '../../modal/modal';
 import './gamePage.css';
 import {useEffect, useState} from 'react';
 
@@ -11,8 +12,7 @@ function GamePage() {
   const [clickedCharacter, setClickedCharacter] = useState(false);
   const [isFlipped, setIsFlipped] = useState(false);
   const [addedChars, setAddedChars] = useState([]);
-
-  // useEffect(() => {}, [isFlipped]);
+  const [gameEnded, setGameEnded] = useState(false);
 
   function shuffleCards(array) {
     return array.sort(() => Math.random() - 0.5);
@@ -28,7 +28,8 @@ function GamePage() {
   const selectedChars = (id) => {
     setAddedChars((prevAddedChars) => {
       if (prevAddedChars.includes(id)) {
-        console.log('GAME OVER!');
+        setGameEnded(true);
+        console.log('Game over!');
       } else {
         return [...prevAddedChars, id];
       }
@@ -69,6 +70,8 @@ function GamePage() {
     );
   });
 
+  const gameOver = gameEnded ? <Modal /> : null;
+
   return (
     <>
       <div className="game-header">
@@ -89,7 +92,10 @@ function GamePage() {
           </h4>
         </div>
       </div>
-      <ul className="cards-grid">{eachCard}</ul>
+      <ul className="cards-grid">
+        {eachCard}
+        {gameOver}
+      </ul>
       <button onClick={shuffleTheCards}>Shuffle</button>
     </>
   );

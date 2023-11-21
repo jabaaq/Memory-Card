@@ -9,7 +9,7 @@ function Card({id, name, img, clicked, clickedChar, isFlipped}) {
         clickedChar(id);
       }}
       key={id}>
-      <Tilt perspective={500} glareEnable={true} scale={1.02} style={{height: 220, width: 150}}>
+      <Tilt perspective={500} glareEnable={true} scale={1.02} style={{height: 180, width: 150}}>
         <div>
           <div className="tilt-card">
             <div className="character-name">{name}</div>

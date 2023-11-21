@@ -3,6 +3,7 @@ import './App.css';
 import {LoadingPage} from '../pages/loadingPage/loadingPage';
 import {StartPage} from '../pages/startPage/startPage';
 import {GamePage} from '../pages/gamePage/gamePage';
+import {Modal} from '../modal/modal';
 
 function App() {
   const [isLoading, setLoadingIsOver] = useState(false);
