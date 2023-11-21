@@ -13,6 +13,7 @@ function GamePage() {
   const [isFlipped, setIsFlipped] = useState(false);
   const [addedChars, setAddedChars] = useState([]);
   const [gameEnded, setGameEnded] = useState(false);
+  const [restartGame, setRestartGame] = useState(false);
 
   function shuffleCards(array) {
     return array.sort(() => Math.random() - 0.5);
@@ -70,7 +71,13 @@ function GamePage() {
     );
   });
 
-  const gameOver = gameEnded ? <Modal /> : null;
+  const handleRestartGame = () => {
+    setRestartGame(true);
+    setGameEnded(false);
+    setAddedChars([]);
+  };
+
+  const gameOver = gameEnded ? <Modal handleRestartGame={handleRestartGame} /> : null;
 
   return (
     <>
