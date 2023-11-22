@@ -16,6 +16,15 @@ function GamePage() {
   const [restartGame, setRestartGame] = useState(false);
   const [gameWon, setGameWon] = useState(false);
   const [score, setScore] = useState(0);
+  const [bestScore, setBestScore] = useState(parseInt(localStorage.getItem('bestScore')));
+
+  useEffect(() => {
+    if (score > bestScore || bestScore === 0) {
+      setBestScore(score);
+    }
+
+    localStorage.setItem('bestScore', bestScore);
+  }, [score]);
 
   function shuffleCards(array) {
     return array.sort(() => Math.random() - 0.5);
@@ -25,6 +34,7 @@ function GamePage() {
 
   const shuffleTheCards = () => {
     const shuffledCards = [...cards].sort(() => Math.random() - 0.5);
+    setScore(score + 1);
     setCards(shuffledCards);
   };
 
@@ -33,7 +43,7 @@ function GamePage() {
       if (prevAddedChars.includes(id)) {
         setGameEnded(true);
         setGameWon(false);
-        console.log('Game over!');
+        setScore(score);
       } else if (prevAddedChars.length + 1 === Object.entries(characters).length) {
         setGameWon(true);
         setGameEnded(true);
@@ -41,10 +51,6 @@ function GamePage() {
       return [...prevAddedChars, id];
     });
   };
-
-  useEffect(() => {
-    console.log(addedChars);
-  }, [addedChars]);
 
   const handleCLick = (id) => {
     if (!clickedCharacter) {
@@ -59,8 +65,6 @@ function GamePage() {
       });
     }
   };
-
-  console.log('shuffled characters -', cards);
 
   const eachCard = shuffledCards.map((item) => {
     return (
@@ -81,6 +85,7 @@ function GamePage() {
     setGameEnded(false);
     setGameWon(false);
     setAddedChars([]);
+    setScore(0);
   };
 
   const gameOver = gameEnded ? <Modal success={false} handleRestartGame={handleRestartGame} /> : null;
@@ -100,9 +105,10 @@ function GamePage() {
           />
         </div>
         <div className="scores-container">
-          <h4 className="just-score">Score: 4</h4>
+          <h4 className="just-score">Score: {score}</h4>
           <h4 className="best-score">
-            Best Score: 9 <img src={trophy} className="trophy-logo" width={'20px'} alt="Trophy" />
+            Best Score: {bestScore}
+            <img src={trophy} className="trophy-logo" width={'20px'} alt="Trophy" />
           </h4>
         </div>
       </div>
