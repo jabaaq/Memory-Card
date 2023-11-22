@@ -110,7 +110,6 @@ function GamePage() {
         {gameOver}
         {succeedGame}
       </ul>
-      <button onClick={shuffleTheCards}>Shuffle</button>
     </>
   );
 }
