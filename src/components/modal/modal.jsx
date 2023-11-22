@@ -6,7 +6,15 @@ import gameOver from '../../assets/img/game-over-pikachu.gif';
 function Modal({handleRestartGame, success}) {
   return (
     <div className="modal">
-      <div animate={{x: 100}} transition={{delay: 1}} className="modal-box">
+      <motion.div
+        initial={{opacity: 0, scale: 0.5}}
+        animate={{opacity: 1, scale: 1}}
+        transition={{
+          duration: 0.5,
+          delay: 0.3,
+          ease: [0, 0.71, 0.2, 1.01],
+        }}
+        className="modal-box">
         <h2 className="modal-text">{success ? 'You Won!' : 'Game Over!'}</h2>
         {success ? (
           <img className="result-image" src={gameWon} width={150} height={200} alt="You won" />
@@ -22,7 +30,7 @@ function Modal({handleRestartGame, success}) {
             <button className="button">Github Repo</button>
           </a>
         </div>
-      </div>
+      </motion.div>
     </div>
   );
 }

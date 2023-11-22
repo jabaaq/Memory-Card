@@ -15,6 +15,7 @@ function GamePage() {
   const [gameEnded, setGameEnded] = useState(false);
   const [restartGame, setRestartGame] = useState(false);
   const [gameWon, setGameWon] = useState(false);
+  const [score, setScore] = useState(0);
 
   function shuffleCards(array) {
     return array.sort(() => Math.random() - 0.5);
