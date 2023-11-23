@@ -6,6 +6,7 @@ import {characters} from '../../../services/characters';
 import {Modal} from '../../modal/modal';
 import './gamePage.css';
 import {useEffect, useState} from 'react';
+import {StartPage} from '../startPage/startPage';
 
 function GamePage() {
   const [cards, setCards] = useState(characters);
@@ -36,6 +37,7 @@ function GamePage() {
     const shuffledCards = [...cards].sort(() => Math.random() - 0.5);
     setScore(score + 1);
     setCards(shuffledCards);
+    return shuffleCards;
   };
 
   const selectedChars = (id) => {
@@ -66,6 +68,12 @@ function GamePage() {
     }
   };
 
+  //to flip the cards
+  const handleFlipCards = () => {
+    console.log(isFlipped);
+    setIsFlipped(!isFlipped);
+  };
+
   const eachCard = shuffledCards.map((item) => {
     return (
       <Card
@@ -86,6 +94,7 @@ function GamePage() {
     setGameWon(false);
     setAddedChars([]);
     setScore(0);
+    setIsFlipped(false);
   };
 
   const gameOver = gameEnded ? <Modal success={false} handleRestartGame={handleRestartGame} /> : null;
@@ -102,6 +111,9 @@ function GamePage() {
             src={gameLogo}
             style={{width: 250}}
             alt="Game logo"
+            onClick={() => {
+              console.log('Clicked');
+            }}
           />
         </div>
         <div className="scores-container">
@@ -117,6 +129,13 @@ function GamePage() {
         {gameOver}
         {succeedGame}
       </ul>
+      <button
+        onClick={() => {
+          handleFlipCards();
+          console.log('flip');
+        }}>
+        Flip The Cards
+      </button>
     </>
   );
 }

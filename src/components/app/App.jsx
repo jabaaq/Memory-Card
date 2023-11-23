@@ -21,7 +21,6 @@ function App() {
   useEffect(() => {
     if (isLoading) {
       setGameStart(true);
-      console.log('started');
     }
   }, [isStartClicked]);
 

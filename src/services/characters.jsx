@@ -21,14 +21,14 @@ const characters = [
   {id: uniqid(), name: 'charmander', src: charmander, clicked: false},
   {id: uniqid(), name: 'charmeleon', src: charmeleon, clicked: false},
   {id: uniqid(), name: 'charizard', src: charizard, clicked: false},
-  // {id: uniqid(), name: 'squirtle', src: squirtle, clicked: false},
-  // {id: uniqid(), name: 'wartortle', src: wartortle, clicked: false},
-  // {id: uniqid(), name: 'blastoise', src: blastoise, clicked: false},
-  // {id: uniqid(), name: 'caterpie', src: caterpie, clicked: false},
-  // {id: uniqid(), name: 'pikachu', src: pikachu, clicked: false},
-  // {id: uniqid(), name: 'beedrill', src: beedrill, clicked: false},
-  // {id: uniqid(), name: 'pidgeotto', src: pidgeotto, clicked: false},
-  // {id: uniqid(), name: 'Sandshrew', src: Sandshrew, clicked: false},
+  {id: uniqid(), name: 'squirtle', src: squirtle, clicked: false},
+  {id: uniqid(), name: 'wartortle', src: wartortle, clicked: false},
+  {id: uniqid(), name: 'blastoise', src: blastoise, clicked: false},
+  {id: uniqid(), name: 'caterpie', src: caterpie, clicked: false},
+  {id: uniqid(), name: 'pikachu', src: pikachu, clicked: false},
+  {id: uniqid(), name: 'beedrill', src: beedrill, clicked: false},
+  {id: uniqid(), name: 'pidgeotto', src: pidgeotto, clicked: false},
+  {id: uniqid(), name: 'Sandshrew', src: Sandshrew, clicked: false},
 ];
 
 export {characters};

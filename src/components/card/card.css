@@ -25,7 +25,8 @@ li {
     transform-style: preserve-3d;
     transition: transform 1s;
     cursor: pointer;
-    height: 220px
+    height: 220px;
+
 }
 
 .card-flipped {
@@ -36,4 +37,15 @@ li {
     cursor: pointer;
     height: 220px;
     transform: rotateY(180deg);
+
+}
+
+/* .background-image {
+    width: 100%;
+    height: 100%
+} */
+
+.tilt-card {
+    height: 210px;
+    border-radius: 10px;
 }

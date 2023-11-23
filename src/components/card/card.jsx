@@ -1,20 +1,32 @@
 import './card.css';
 import Tilt from 'react-parallax-tilt';
+// import {cardBackground} from '../../assets/img/pokemon-card-background.png';
+import backgroundImg from '../../assets/img/pokemon-card-background.png';
 
 function Card({id, name, img, clicked, clickedChar, isFlipped}) {
   return (
     <li
-      className={isFlipped ? 'card-flipped' : 'card'}
       onClick={() => {
         clickedChar(id);
       }}
-      key={id}>
-      <Tilt perspective={500} glareEnable={true} scale={1.02} style={{height: 180, width: 150}}>
-        <div>
+      key={id}
+      className="card">
+      <Tilt
+        perspective={500}
+        glareEnable={true}
+        flipHorizontally={isFlipped}
+        scale={1.02}
+        style={{height: 210, width: 150}}
+        glareBorderRadius={'10px'}>
+        <div className="card-content">
           <div className="tilt-card">
-            <div className="character-name">{name}</div>
+            <div className="character-name">{isFlipped ? '' : name}</div>
             <div className="character-img">
-              <img src={img} alt={img} width={150} />
+              {isFlipped ? (
+                <img src={backgroundImg} className="background-image" alt="card background" width={151} height={210} />
+              ) : (
+                <img src={img} alt="character" width={150} />
+              )}
             </div>
           </div>
         </div>
