@@ -30,9 +30,16 @@ function Card({id, name, img, clicked, clickedChar, isFlipped}) {
             <div className="character-name">{isFlipped ? '' : name}</div>
             <div className="character-img">
               {isFlipped ? (
-                <img src={backgroundImg} className="background-image" alt="card background" width={151} height={210} />
+                <img
+                  src={backgroundImg}
+                  loading="lazy"
+                  className="background-image"
+                  alt="card background"
+                  width={151}
+                  height={210}
+                />
               ) : (
-                <img src={img} alt="character" width={150} />
+                <img src={img} alt="character" width={150} loading="lazy" />
               )}
             </div>
           </div>
