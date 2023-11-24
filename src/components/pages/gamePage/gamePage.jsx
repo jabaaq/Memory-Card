@@ -16,17 +16,13 @@ function GamePage({backToStartPage}) {
   const [restartGame, setRestartGame] = useState(false);
   const [gameWon, setGameWon] = useState(false);
   const [score, setScore] = useState(0);
-
-  const storedBestScore = localStorage.getItem('bestScore');
-  const initialBestScore = !isNaN(storedBestScore) ? parseInt(storedBestScore) : 0;
-
-  const [bestScore, setBestScore] = useState(initialBestScore);
+  const [bestScore, setBestScore] = useState(parseInt(localStorage.getItem('bestScore')));
 
   useEffect(() => {
     if (score > bestScore || bestScore === 0) {
       setBestScore((prevBestScore) => {
-        const newBestScore = Math.max(score, prevBestScore.toString());
-        localStorage.setItem('bestScore', newBestScore);
+        const newBestScore = Math.max(score, prevBestScore);
+        localStorage.setItem('bestScore', newBestScore.toString());
         return newBestScore;
       });
     }
@@ -121,7 +117,7 @@ function GamePage({backToStartPage}) {
         <div className="scores-container">
           <h4 className="just-score">Score: {score}</h4>
           <h4 className="best-score">
-            Best Score: {bestScore}
+            Best Score: {parseInt(bestScore)}
             <img src={trophy} className="trophy-logo" width={'20px'} alt="Trophy" />
           </h4>
         </div>
