@@ -60,9 +60,15 @@ function GamePage() {
         if (item.id === id) {
           item.clicked = true;
           setTimeout(() => {
-            selectedChars(item.id);
-            shuffleTheCards();
+            setIsFlipped(true);
           }, 800);
+
+          setTimeout(() => {
+            selectedChars(item.id);
+            setIsFlipped(false);
+            shuffleTheCards();
+            console.log(item.id);
+          }, 2000);
         }
       });
     }

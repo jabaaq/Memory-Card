@@ -1,11 +1,14 @@
 import './card.css';
 import Tilt from 'react-parallax-tilt';
-// import {cardBackground} from '../../assets/img/pokemon-card-background.png';
+import {motion} from 'framer-motion';
 import backgroundImg from '../../assets/img/pokemon-card-background.png';
 
 function Card({id, name, img, clicked, clickedChar, isFlipped}) {
   return (
-    <li
+    <motion.li
+      whileHover={{scale: 1}}
+      whileTap={{scale: 3.9}}
+      style={{width: 250}}
       onClick={() => {
         clickedChar(id);
       }}
@@ -15,6 +18,7 @@ function Card({id, name, img, clicked, clickedChar, isFlipped}) {
         perspective={500}
         glareEnable={true}
         flipHorizontally={isFlipped}
+        transitionSpeed={700}
         scale={1.02}
         style={{height: 210, width: 150}}
         glareBorderRadius={'10px'}>
@@ -32,7 +36,7 @@ function Card({id, name, img, clicked, clickedChar, isFlipped}) {
         </div>
         <div className="cardBack"></div>
       </Tilt>
-    </li>
+    </motion.li>
   );
 }
 
