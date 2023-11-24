@@ -20,11 +20,13 @@ function GamePage({backToStartPage}) {
 
   useEffect(() => {
     if (score > bestScore || bestScore === 0) {
-      setBestScore(score);
+      setBestScore((prevBestScore) => {
+        const newBestScore = Math.max(score, prevBestScore);
+        localStorage.setItem('bestScore', newBestScore.toString());
+        return newBestScore;
+      });
     }
-
-    localStorage.setItem('bestScore', bestScore);
-  }, [score]);
+  }, [score, bestScore]);
 
   function shuffleCards(array) {
     return array.sort(() => Math.random() - 0.5);
