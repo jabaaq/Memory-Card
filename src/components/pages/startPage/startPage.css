@@ -16,6 +16,7 @@
     outline: 10px solid rgb(var(--primary), .5);
     border-radius: 100%;
     position: relative;
+    top: 20px;
     transition: .3s;
 }
 

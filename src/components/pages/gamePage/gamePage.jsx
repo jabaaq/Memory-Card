@@ -7,7 +7,7 @@ import {Modal} from '../../modal/modal';
 import './gamePage.css';
 import {useEffect, useState} from 'react';
 
-function GamePage() {
+function GamePage({backToStartPage}) {
   const [cards, setCards] = useState(characters);
   const [clickedCharacter, setClickedCharacter] = useState(false);
   const [isFlipped, setIsFlipped] = useState(false);
@@ -66,8 +66,7 @@ function GamePage() {
             selectedChars(item.id);
             setIsFlipped(false);
             shuffleTheCards();
-            console.log(item.id);
-          }, 1300);
+          }, 1400);
         }
       });
     }
@@ -110,9 +109,7 @@ function GamePage() {
             src={gameLogo}
             style={{width: 250}}
             alt="Game logo"
-            onClick={() => {
-              console.log('Clicked');
-            }}
+            onClick={backToStartPage}
           />
         </div>
         <div className="scores-container">

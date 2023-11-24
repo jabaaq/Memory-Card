@@ -22,17 +22,10 @@ function StartPage({clickToStart}) {
       <motion.div initial="hidden" animate="visible" variants={variants} className="game-name">
         Memory Game
       </motion.div>
-      <motion.div
-        whileHover={{scale: 1.1}}
-        whileTap={{scale: 0.9}}
-        initial="hidden"
-        animate="visible"
-        variants={variants}
-        className="btn-class-name"
-        onClick={clickToStart}>
+      <div className="btn-class-name" onClick={clickToStart}>
         <span className="back"></span>
         <span className="front">START</span>
-      </motion.div>
+      </div>
     </div>
   );
 }
