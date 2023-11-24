@@ -16,13 +16,17 @@ function GamePage({backToStartPage}) {
   const [restartGame, setRestartGame] = useState(false);
   const [gameWon, setGameWon] = useState(false);
   const [score, setScore] = useState(0);
-  const [bestScore, setBestScore] = useState(parseInt(localStorage.getItem('bestScore')));
+
+  const storedBestScore = localStorage.getItem('bestScore');
+  const initialBestScore = !isNaN(storedBestScore) ? parseInt(storedBestScore) : 0;
+
+  const [bestScore, setBestScore] = useState(initialBestScore);
 
   useEffect(() => {
     if (score > bestScore || bestScore === 0) {
       setBestScore((prevBestScore) => {
-        const newBestScore = Math.max(score, prevBestScore);
-        localStorage.setItem('bestScore', newBestScore.toString());
+        const newBestScore = Math.max(score, prevBestScore.toString());
+        localStorage.setItem('bestScore', newBestScore);
         return newBestScore;
       });
     }
