@@ -2,15 +2,18 @@ import './card.css';
 import Tilt from 'react-parallax-tilt';
 import {motion} from 'framer-motion';
 import backgroundImg from '../../assets/img/pokemon-card-background.png';
+import cardSound from '../../assets/sounds/cards-sound.mp3';
 
 function Card({id, name, img, clicked, clickedChar, isFlipped}) {
+  const audio = new Audio();
+  audio.src = cardSound;
   return (
     <motion.li
       whileHover={{scale: 1}}
       whileTap={{scale: 3.9}}
-      style={{width: 250}}
       onClick={() => {
         clickedChar(id);
+        audio.play();
       }}
       key={id}
       className="card">

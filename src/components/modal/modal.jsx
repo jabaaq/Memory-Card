@@ -2,8 +2,15 @@ import './modal.css';
 import {motion} from 'framer-motion';
 import gameWon from '../../assets/img/you-win-pikachu.gif';
 import gameOver from '../../assets/img/game-over-pikachu.gif';
+import menuSound from '../../assets/sounds/Game-Menu Select-Sound-Effect.mp3';
+import {useEffect} from 'react';
 
 function Modal({handleRestartGame, success}) {
+  let audio = new Audio();
+  audio.src = menuSound;
+  useEffect(() => {
+    audio.play();
+  }, [success, handleRestartGame]);
   return (
     <div className="modal">
       <motion.div

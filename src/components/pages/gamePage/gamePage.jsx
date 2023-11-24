@@ -6,7 +6,6 @@ import {characters} from '../../../services/characters';
 import {Modal} from '../../modal/modal';
 import './gamePage.css';
 import {useEffect, useState} from 'react';
-import {StartPage} from '../startPage/startPage';
 
 function GamePage() {
   const [cards, setCards] = useState(characters);
@@ -61,23 +60,17 @@ function GamePage() {
           item.clicked = true;
           setTimeout(() => {
             setIsFlipped(true);
-          }, 800);
+          }, 300);
 
           setTimeout(() => {
             selectedChars(item.id);
             setIsFlipped(false);
             shuffleTheCards();
             console.log(item.id);
-          }, 2000);
+          }, 1300);
         }
       });
     }
-  };
-
-  //to flip the cards
-  const handleFlipCards = () => {
-    console.log(isFlipped);
-    setIsFlipped(!isFlipped);
   };
 
   const eachCard = shuffledCards.map((item) => {
@@ -135,13 +128,6 @@ function GamePage() {
         {gameOver}
         {succeedGame}
       </ul>
-      <button
-        onClick={() => {
-          handleFlipCards();
-          console.log('flip');
-        }}>
-        Flip The Cards
-      </button>
     </>
   );
 }
